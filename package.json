@@ -1,0 +1,23 @@
+{
+  "name": "projeto-guiapergustas-nodejs",
+  "version": "1.0.0",
+  "description": "Uma plataforma de perguntas e repostas ao estilo yahoo respostas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaoloFilipi/projeto-guiapergustas-nodejs.git"
+  },
+  "author": "Paolo Filipi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaoloFilipi/projeto-guiapergustas-nodejs/issues"
+  },
+  "homepage": "https://github.com/PaoloFilipi/projeto-guiapergustas-nodejs#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}
