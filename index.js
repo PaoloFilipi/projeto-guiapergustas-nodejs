@@ -3,6 +3,7 @@ const app = express();
 
 //estou dizendo paro o express que o motor de html é o ejs
 app.set('view engine','ejs');
+app.use(express.static('public'))//para utilizar arquivos staticos
 
 app.get("/",(req,res) =>{
     var nome = "Paolo Filipi";
