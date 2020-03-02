@@ -6,16 +6,10 @@ app.set('view engine','ejs');
 app.use(express.static('public'))//para utilizar arquivos staticos
 
 app.get("/",(req,res) =>{
-    var nome = "Paolo Filipi";
-    var lang = "Python";
-    var exibirMsg =false;
-    res.render("index",{
-        nome:nome,
-        lang: lang,
-        empresa: "Recebe Descongelando",
-        inscritos: 10000000,
-        msg:exibirMsg
-    })
+    res.render("index")
+})
+app.get("/perguntar",(req,res) =>{
+    res.render("perguntar");
 })
 
 
