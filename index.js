@@ -1,6 +1,17 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser"); 
+const connection = require("./database/database")
+
+//Database
+
+connection
+    .authenticate().then(() => {
+    console.log("conexão feita com o banco de dados");
+}).catch((erro) => {
+    console.log(erro);
+})
+
 
 //estou dizendo paro o express que o motor de html é o ejs
 app.set('view engine','ejs');
