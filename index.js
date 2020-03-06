@@ -23,7 +23,10 @@ app.use(bodyParser.json());// permite que a gente leia dados de formulario envia
 //Rotas
 app.get("/",(req,res) =>{
     //esse metodo é equivalente ao select * from 
-    Pergunta.findAll({raw:true}).then(perguntas =>{
+    Pergunta.findAll({raw:true,order:[
+        // como se fosse o order by
+        ['id','desc']
+    ]}).then(perguntas =>{
         res.render("index",{
             perguntas:perguntas
         })
@@ -46,6 +49,21 @@ app.post("/salvarpergunta",(req,res) => {
         res.redirect("/");
     });
 });
+
+app.get("/pergunta/:id",(req,res) =>{
+    var id = req.params.id;
+    Pergunta.findOne({
+        where: {id: id}
+    }).then(pergunta => {
+        if(pergunta != undefined){// pergunta encontrada
+            res.render("pergunta",{
+                pergunta:pergunta
+            });
+        }else{// não encontrada
+            res.redirect("/");
+        }
+    });
+})
 
 app.listen(8080,() =>{
     console.log("App rodando...")
