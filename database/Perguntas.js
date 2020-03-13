@@ -5,11 +5,11 @@ const connection = require("./database");
 const Pergunta = connection.define('perguntas',{
     titulo:{
         type: Sequelize.STRING,
-        allowNull: false // impede que deixe null
+        allowNull: true // impede que deixe null
     },
     descricao:{
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: true
 
 
     }

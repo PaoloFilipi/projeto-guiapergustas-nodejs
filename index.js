@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser"); 
 const connection = require("./database/database");
 const Pergunta = require("./database/Perguntas");//importar meu model
+const Resposta = require ("./database/Respostas");
 //Database
 
 connection.authenticate().then(() => {
@@ -56,14 +57,35 @@ app.get("/pergunta/:id",(req,res) =>{
         where: {id: id}
     }).then(pergunta => {
         if(pergunta != undefined){// pergunta encontrada
-            res.render("pergunta",{
-                pergunta:pergunta
-            });
+            Resposta.findAll({
+                where:{perguntaId:pergunta.id},
+                order:[['id','desc']]
+            }).then(respostas =>{
+                res.render("pergunta",{
+                    pergunta:pergunta,
+                    respostas: respostas
+                });
+
+            })
         }else{// não encontrada
             res.redirect("/");
         }
     });
 })
+
+app.post("/responder",(req,res) => {
+    var corpo = req.body.corpo;
+    var perguntaId = req.body.pergunta;
+    var dataHora = req.body.dataHora
+    Resposta.create({
+        corpo:corpo,
+        perguntaId:perguntaId
+    }).then(() => {
+        res.redirect("/pergunta/"+perguntaId);
+    }).catch((erro) =>{
+        console.log("ouve um erro e foi esse: "+erro);
+    });
+});
 
 app.listen(8080,() =>{
     console.log("App rodando...")
