@@ -22,7 +22,7 @@ Responder pergunta:
 
 
 
-Foi utilizado recursos do: 
+Foram utilizados recursos do: 
 ------
 * Express
 * Sequelize
