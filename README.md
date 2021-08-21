@@ -5,7 +5,7 @@ Sistema de perguntas e respostas utilizando nodejs
 
 Nesse projeto pude dar meus primeiros passos utilizando o Nodejs
 ------
-  Se trata de um sistema que permite um usuário criar uma pergunta e essa pergunta ser respondida por qualquer pessoal de forma anônima, semelhante ao **ask.fm** porém de uma forma bem simplista. 
+  Se trata de um sistema que permite um usuário criar uma pergunta e essa pergunta ser respondida por qualquer pessoa de forma anônima, semelhante ao **ask.fm** porém de uma forma bem simplista. 
 
 
 
